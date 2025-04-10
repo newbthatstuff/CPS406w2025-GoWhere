@@ -1,37 +1,64 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MapViewer extends JFrame {
-    private JTextField searchField;
+    private JTextField currentField;
+    private JTextField destField;
+    private MapPanel mapPanel;
+    private NavigationSession navigationSession;
+    private UserInputHandler inputHandler;
 
     public MapViewer(String imagePath) {
         setTitle("TMU Campus Map");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
 
-        MapPanel mapPanel = new MapPanel(imagePath);
+        mapPanel = new MapPanel(imagePath);
 
-        // Create search components
-        JPanel searchPanel = new JPanel(new BorderLayout());
-        searchField = new JTextField(20);
-        JButton searchButton = new JButton("Search");
-
-        // Add action listener for the search button
-        searchButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String query = searchField.getText().trim();
-                mapPanel.searchLocation(query);
+        Map<String, Location> locations = new HashMap<>();
+        for (Map.Entry<String, Point> entry : mapPanel.getGraph().getCoordinates().entrySet()) {
+            if (!entry.getKey().matches("I\\d+")) {
+                locations.put(entry.getKey(), new Location(entry.getValue().x, entry.getValue().y, entry.getKey()));
             }
+        }
+        System.out.println("Populated locations: " + locations.keySet());
+
+        inputHandler = new UserInputHandler(locations);
+        RouteEngine routeEngine = new RouteEngine(mapPanel.getGraph());
+        navigationSession = new NavigationSession(routeEngine, mapPanel);
+
+        JPanel searchPanel = new JPanel(new GridLayout(2, 3));
+        currentField = new JTextField(20);
+        destField = new JTextField(20);
+        JButton directionButton = new JButton("Get Directions");
+
+        directionButton.addActionListener(_ -> {
+            String currentText = currentField.getText().trim();
+            String destText = destField.getText().trim();
+            System.out.println("Current location input: '" + currentText + "'");
+            System.out.println("Destination input: '" + destText + "'");
+            Location current = inputHandler.getLocationFromText(currentText);
+            Location dest = inputHandler.getLocationFromText(destText);
+
+            if (current == null || dest == null) {
+                JOptionPane.showMessageDialog(this, "Invalid location(s) entered.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            navigationSession.setCurrent(current);
+            navigationSession.setDestination(dest);
+            navigationSession.start();
         });
 
-        // Add components to the search panel
-        searchPanel.add(searchField, BorderLayout.CENTER);
-        searchPanel.add(searchButton, BorderLayout.EAST);
+        searchPanel.add(new JLabel("Current Location:"));
+        searchPanel.add(currentField);
+        searchPanel.add(new JLabel(""));
+        searchPanel.add(new JLabel("Destination:"));
+        searchPanel.add(destField);
+        searchPanel.add(directionButton);
 
-        // Add components to the frame
         setLayout(new BorderLayout());
         add(searchPanel, BorderLayout.NORTH);
         add(mapPanel);
