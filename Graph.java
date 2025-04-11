@@ -91,10 +91,6 @@ public class Graph {
         return correctedPath;
     }
 
-    public double getDistance(String from, String to) {
-        return adjList.get(from).getOrDefault(to, Double.MAX_VALUE);
-    }
-
     public Point getCoordinates(String node) {
         return coordinates.get(node);
     }
