@@ -29,58 +29,58 @@ public class MapPanel extends JPanel implements MouseWheelListener, MouseListene
 
         graph = new Graph();
 
-        graph.addNode("MRS", 100, 300);
-        graph.addNode("CPK", 830, 370);
-        graph.addNode("CAR", 1290, 200);
-        graph.addNode("MAC", 1430, 150);
-        graph.addNode("YNG", 1020, 480);
-        graph.addNode("CUI", 1400, 500);
-        graph.addNode("JOR", 1120, 650);
-        graph.addNode("KHN", 1400, 650);
-        graph.addNode("MON", 1680, 630);
-        graph.addNode("SHE", 1860, 630);
-        graph.addNode("COP", 1980, 650);
-        graph.addNode("POD", 1110, 780);
-        graph.addNode("KHW", 1270, 780);
-        graph.addNode("KHE", 1530, 780);
-        graph.addNode("ARC", 1680, 730);
-        graph.addNode("EPH", 1810, 690);
-        graph.addNode("PIT", 1800, 770);
-        graph.addNode("SLC", 980, 900);
-        graph.addNode("LIB", 1110, 910);
-        graph.addNode("KHS", 1400, 910);
-        graph.addNode("RCC", 1670, 910);
-        graph.addNode("ILC", 2030, 930);
-        graph.addNode("BKS", 1080, 1010);
-        graph.addNode("CED", 1250, 1090);
-        graph.addNode("IMC", 1340, 1030);
-        graph.addNode("OKF", 1460, 1000);
-        graph.addNode("OAK", 1570, 1000);
-        graph.addNode("ENG", 1670, 1080);
-        graph.addNode("MER", 1810, 1090);
-        graph.addNode("RAC", 1410, 835);
-        graph.addNode("PKG", 1090, 1090);
-        graph.addNode("IMA", 1360, 1070);
-        graph.addNode("HEI", 1470, 1070);
-        graph.addNode("SCC", 1500, 1030);
-        graph.addNode("AOB", 780, 1200);
-        graph.addNode("DSQ", 1080, 1200);
-        graph.addNode("VIC", 1250, 1220);
-        graph.addNode("BND", 1370, 1205);
-        graph.addNode("PRO", 1370, 1240);
-        graph.addNode("CIS", 1370, 1260);
-        graph.addNode("BON", 1460, 1190);
-        graph.addNode("SBB", 1460, 1230);
-        graph.addNode("SID", 1550, 1115);
-        graph.addNode("DCC", 1550, 1205);
-        graph.addNode("DAL", 1810, 1130);
-        graph.addNode("CIV", 1880, 1190);
-        graph.addNode("TRS", 600, 1330);
-        graph.addNode("YDI", 810, 1310);
-        graph.addNode("HOEM", 2080, 1460);
-        graph.addNode("BTS", 610, 1610);
-        graph.addNode("TEC", 800, 1500);
-        graph.addNode("SMH", 1260, 1530);
+        graph.addNode("MRS", 100, 300); //MRS
+        graph.addNode("CPK", 830, 370); //CPK
+        graph.addNode("CAR", 1290, 200); //CAR
+        graph.addNode("MAC", 1430, 150); //MAC
+        graph.addNode("YNG", 1020, 480); //YNG
+        graph.addNode("CUI", 1400, 500); //CUI
+        graph.addNode("JOR", 1120, 650); //JOR
+        graph.addNode("KHN", 1400, 650); //KHN
+        graph.addNode("MON", 1680, 630); //MON
+        graph.addNode("SHE", 1860, 630); //SHE
+        graph.addNode("COP", 1980, 650); //COP
+        graph.addNode("POD", 1110, 780); //POD
+        graph.addNode("KHW", 1270, 780); //KHW
+        graph.addNode("KHE", 1530, 780); //KHE
+        graph.addNode("ARC", 1680, 730); //ARC
+        graph.addNode("EPH", 1810, 690); //EPH
+        graph.addNode("PIT", 1800, 770); //PIT
+        graph.addNode("SLC", 980, 900); //SLC
+        graph.addNode("LIB", 1110, 910); //LIB
+        graph.addNode("KHS", 1400, 910); //KHS
+        graph.addNode("RCC", 1670, 910); //RCC
+        graph.addNode("ILC", 2030, 930); //ILC
+        graph.addNode("BKS", 1080, 1010); //BKS
+        graph.addNode("CED", 1250, 1090); //CED
+        graph.addNode("IMC", 1340, 1030); //IMC
+        graph.addNode("OKF", 1460, 1000); //OKF
+        graph.addNode("OAK", 1570, 1000); //OAK
+        graph.addNode("ENG", 1670, 1080); //ENG
+        graph.addNode("MER", 1810, 1090); //MER
+        graph.addNode("RAC", 1410, 835); //RAC
+        graph.addNode("PKG", 1090, 1090); //PKG
+        graph.addNode("IMA", 1360, 1070); //IMA
+        graph.addNode("HEI", 1470, 1070); //HEI
+        graph.addNode("SCC", 1500, 1030); //SCC
+        graph.addNode("AOB", 780, 1200); //AOB
+        graph.addNode("DSQ", 1080, 1200); //DSQ
+        graph.addNode("VIC", 1250, 1220); //VIC
+        graph.addNode("BND", 1370, 1205); //BND
+        graph.addNode("PRO", 1370, 1240); //PRO
+        graph.addNode("CIS", 1370, 1260); //CIS
+        graph.addNode("BON", 1460, 1190); //BON
+        graph.addNode("SBB", 1460, 1230); //SBB
+        graph.addNode("SID", 1550, 1115); //SID
+        graph.addNode("DCC", 1550, 1205); //DCC
+        graph.addNode("DAL", 1810, 1130); //DAL
+        graph.addNode("CIV", 1880, 1190); //CIV
+        graph.addNode("TRS", 600, 1330); //TRS
+        graph.addNode("YDI", 810, 1310); //YDI
+        graph.addNode("HOEM", 2080, 1460); //HOEM
+        graph.addNode("BTS", 610, 1610); //BTS
+        graph.addNode("TEC", 800, 1500); //TEC
+        graph.addNode("SMH", 1260, 1530); //SMH
 
         graph.addNode("I1", 100, 300);   // Gerrard St West & Elizabeth St Ave
         graph.addNode("I2", 1120, 650);  // Gerrard St West & University Ave

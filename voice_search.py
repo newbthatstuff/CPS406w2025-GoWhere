@@ -5,8 +5,8 @@ def listen():
     with sr.Microphone() as source:
         audio = r.listen(source)
     try:
-        text = r.recognize_google(audio)  # Uses Google's API 
-        print(text)  # This will be read by MapViewer
+        text = r.recognize_google(audio)
+        print(text)
     except:
         print("ERROR")
 

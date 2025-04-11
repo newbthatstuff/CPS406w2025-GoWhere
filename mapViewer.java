@@ -32,16 +32,16 @@ public class MapViewer extends JFrame {
         navigationSession = new NavigationSession(routeEngine, mapPanel);
 
         JButton voiceButtonCur = new JButton("Voice Input");
-        voiceButtonCur.addActionListener(e -> startVoiceRecognition(currentField));
+        voiceButtonCur.addActionListener(_ -> startVoiceRecognition(currentField));
         JButton voiceButtonDest = new JButton("Voice Input");
-        voiceButtonDest.addActionListener(e -> startVoiceRecognition(destField));
+        voiceButtonDest.addActionListener(_ -> startVoiceRecognition(destField));
 
         JPanel searchPanel = new JPanel(new GridLayout(2, 3));
         currentField = new JTextField(20);
         destField = new JTextField(20);
         JButton directionButton = new JButton("Get Directions");
 
-        directionButton.addActionListener(z -> {
+        directionButton.addActionListener(_ -> {
             String currentText = currentField.getText().trim();
             String destText = destField.getText().trim();
             System.out.println("Current location input: '" + currentText + "'");
@@ -84,7 +84,6 @@ public class MapViewer extends JFrame {
             pb.redirectErrorStream(true);
             Process p = pb.start();
 
-            // Read Python's output
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String output = reader.readLine();
 
